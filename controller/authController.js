@@ -60,7 +60,7 @@ exports.signup = catchAsync(async (req, res, next) => {
   try {
     // 3) Send it to user's email
 
-    const resetURL = `http://localhost:4000/api/v1/users/emailVerifyLogin/${verificationToken}`;
+    const resetURL = `https://ajaykumar-b25b-password-reset.netlify.app/emailverification/${verificationToken}`;
 
     await new Email(user, resetURL).sendEmailVerification();
 
@@ -115,6 +115,9 @@ exports.emailVerifiedLogin = catchAsync(async (req, res, next) => {
   user.isVerified = true;
 
   await user.save({ validateBeforeSave: false });
+
+  const url = 0; // Dummy URL
+  await new Email(user, url).sendWelcome();
 
   createSendToken(user, 200, res);
 });
@@ -192,7 +195,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
 
   try {
     // 3) Send it to user's email
-    const resetURL = `https://instablog-app.netlify.app/resetpassword/${resetToken}`;
+    const resetURL = `https://ajaykumar-b25b-password-reset.netlify.app/${resetToken}`;
 
     await new Email(user, resetURL).sendPasswordReset();
 
