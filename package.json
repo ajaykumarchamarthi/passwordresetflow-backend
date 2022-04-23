@@ -1,11 +1,11 @@
 {
-  "name": "passwordresetflow",
+  "name": "passwordresetflow-backend",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "set NODE_ENV=development&&nodemon server.js",
     "debug": "ndb server.js",
     "prod": "set NODE_ENV=production&&nodemon server.js"
