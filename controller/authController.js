@@ -195,7 +195,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
 
   try {
     // 3) Send it to user's email
-    const resetURL = `https://ajaykumar-b25b-password-reset.netlify.app/${resetToken}`;
+    const resetURL = `https://ajaykumar-b25b-password-reset.netlify.app/resetpassword/${resetToken}`;
 
     await new Email(user, resetURL).sendPasswordReset();
 
